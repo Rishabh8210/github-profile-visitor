@@ -1,8 +1,5 @@
 # Getting Started with Github Profile Visitor
 
-
-## Getting Started
-
 ### Prerequisites
 
 - Node.js and npm installed on your machine.
