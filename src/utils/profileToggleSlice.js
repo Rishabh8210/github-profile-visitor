@@ -7,9 +7,10 @@ const profileToggleSlice = createSlice({
     },
     reducers: {
         addItem:(state, action) => {
+            state.items = []
             state.items.push(action.payload);
         },
-        deleteItem:() => {
+        deleteItem:(state) => {
             state.items = []
         }
     }

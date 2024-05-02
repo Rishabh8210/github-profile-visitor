@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import { users } from '../constant'
+import { useSelector } from 'react-redux'
 const ProfileCard = () => {
 
-    const [isProfileView, setProfileView] = useState(true)
-    const handleClick = () => {
-        setProfileView(!isProfileView);
-    }
+    const isProfileView = useSelector(store => store.profileToggle.items)
+    console.log(isProfileView.length)
     
-    return isProfileView && (
+    return (isProfileView.length != 0) && (
         <div className='h-screen w-1/4 px-2rounded-md'>
             <div className='h-20 flex justify-between items-center border-b-2 pr-5'>
                 <h3 className='text-3xl font-semibold text-blue-950'>Profile</h3>
-                <p className='text-lg font-bold text-blue-950 cursor-pointer' onClick={()=> handleClick()}>X</p>
+                <p className='text-lg font-bold text-blue-950 cursor-pointer'>X</p>
             </div>
             <div className='h-1/3 p-2 w-full  flex items-center justify-center'>
                 <img className='h-full rounded-3xl' src={users[0]?.img} alt='User-profile'/>
