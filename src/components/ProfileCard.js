@@ -1,23 +1,28 @@
 import React, { useState } from 'react'
 import { users } from '../constant'
-import { useSelector } from 'react-redux'
-const ProfileCard = () => {
+import { useSelector, useDispatch } from 'react-redux'
+import { deleteItem } from '../utils/profileToggleSlice'
+const ProfileCard   = () => {
 
     const isProfileView = useSelector(store => store.profileToggle.items)
-    console.log(isProfileView.length)
-    
+    console.log(isProfileView)
+    const dispatch = useDispatch()
+
+    const handleClick = () => {
+        dispatch(deleteItem())
+    }
     return (isProfileView.length != 0) && (
         <div className='h-screen w-1/4 px-2rounded-md'>
             <div className='h-20 flex justify-between items-center border-b-2 pr-5'>
                 <h3 className='text-3xl font-semibold text-blue-950'>Profile</h3>
-                <p className='text-lg font-bold text-blue-950 cursor-pointer'>X</p>
+                <p className='text-lg font-bold text-blue-950 cursor-pointer' onClick={() => handleClick()}>X</p>
             </div>
             <div className='h-1/3 p-2 w-full  flex items-center justify-center'>
-                <img className='h-full rounded-3xl' src={users[0]?.img} alt='User-profile'/>
+                <img className='h-full rounded-3xl' src={isProfileView[0]?.img} alt='User-profile'/>
             </div>
             <div className='h-fit w-full flex justify-between items-center py-5 pr-2'>
                 <div className='h-fit w-3/4 flex flex-col justify-center gap-2'>
-                    <p className='text-2xl font-semibold text-blue-950'>Rishabh Pandey</p>
+                    <p className='text-2xl font-semibold text-blue-950'>{isProfileView[0]?.name}</p>
                     <p className='text-blue-950'>Product Enfgineer and Design head</p>
                 </div>
                 {/* Wrap inside the Link tag */}

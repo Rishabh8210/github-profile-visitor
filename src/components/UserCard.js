@@ -4,7 +4,7 @@ import { addItem } from '../utils/profileToggleSlice'
 const UserCard = ({data}) => {
   const dispatch = useDispatch()
   const handleClick = () => {
-      dispatch(addItem(1))
+      dispatch(addItem(data))
   }
   return (
     <div className='px-7 h-20 w-full border-b-2  flex justify-between items-center cursor-pointer' onClick={() => handleClick()}>
