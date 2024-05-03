@@ -25,7 +25,6 @@ const ProfileCard   = () => {
                     <p className='text-2xl font-semibold text-blue-950'>{isProfileView[0]?.name}</p>
                     <p className='text-blue-950'>Product Enfgineer and Design head</p>
                 </div>
-                {/* Wrap inside the Link tag */}
                 <button className='h-10 w-1/5 text-base font-semibold text-white bg-slate-900 rounded-lg'>Visit</button>
             </div>
             <div className='h-fit w-full flex flex-col gap-3'>
