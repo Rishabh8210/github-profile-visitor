@@ -1,7 +1,9 @@
 import React from 'react'
 import UserCard from './UserCard'
-import {users} from '../constant'
+import { useSelector } from 'react-redux'
+
 const UserList = () => {
+  const users = useSelector(store => store.userList.items);
   return (
     <div className='w-full h-[600px] overflow-auto rounded-md '>
         <div className='px-7 h-12 text-md text-blue-950 font-semibold w-full bg-slate-50 flex justify-between items-center border-b-2 sticky top-0'>
